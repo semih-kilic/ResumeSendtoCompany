@@ -1,46 +1,46 @@
 # Autonomous Outreach System
 
-> **AI-assisted lead discovery, personalization, and campaign automation for targeted B2B outreach.**
+> **Discover better leads. Personalize with context. Launch outreach you can review.**
 
+[![CI](https://github.com/semih-kilic/Autonomous-Outreach-System/actions/workflows/ci.yml/badge.svg)](https://github.com/semih-kilic/Autonomous-Outreach-System/actions/workflows/ci.yml)
 [![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?logo=react&logoColor=111827)](https://react.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-Node%20test%20runner-0f766e)](tests/)
 
-![Autonomous Outreach System dashboard](assets/dashboard-simple.svg)
+![Autonomous Outreach System social preview](assets/social-preview.svg)
+
+Autonomous Outreach System is a **self-hosted, AI-assisted B2B outreach workspace** for discovering relevant companies, verifying contacts, generating useful personalization, reviewing campaigns, and measuring responses from one operational dashboard.
+
+It is built for founders, freelancers, and small sales teams that want more control than a black-box outreach platform provides. The system keeps the operator in the loop with dry-run mode, provider visibility, campaign progress, and local SQLite persistence.
+
+## Product tour
+
+### One operational view
+
+![Dashboard overview](assets/dashboard-overview.svg)
+
+The dashboard brings lead quality, campaign delivery, reply performance, and provider health into one view. The included visual is a safe demo illustration using synthetic data; it does not expose credentials or recipient information.
+
+### A reviewable workflow
+
+![Outreach workflow](assets/outreach-workflow.svg)
+
+The intended workflow is simple: **discover → enrich and verify → personalize and review → launch and learn**. Each stage can be inspected before live sending is enabled.
 
 ## What it does
 
-Autonomous Outreach System brings lead discovery, email verification, AI-assisted personalization, campaign delivery, and campaign analytics into one self-hosted dashboard. It is designed for controlled, transparent outreach workflows where the operator can review leads and configure sending providers before a campaign starts.
+| Capability | Outcome |
+|---|---|
+| **Lead discovery** | Collect relevant companies from configured directories, search sources, and scraping providers. |
+| **Enrichment and verification** | Normalize contacts, verify addresses, classify email types, and rank useful leads. |
+| **AI personalization** | Generate context-aware introductions using Gemini or OpenAI integrations and reusable templates. |
+| **Campaign operations** | Run dry-runs, configure providers, apply rate limits, stream progress, retry failures, and monitor delivery. |
+| **Reply and performance tracking** | Follow campaign activity through replies, opens, bounces, analytics, and provider health. |
+| **Self-hosted control** | Keep the operational database and configuration local while connecting only the providers you choose. |
 
-The repository includes a Node.js/Express backend, a React/Vite dashboard, SQLite persistence, provider fallback support, email verification, reply monitoring, campaign metrics, and a dead-letter queue for failed work.
+## Who it is for
 
-## Highlights
-
-- **Lead discovery:** directory, search, and configurable scraping providers.
-- **AI personalization:** Gemini and OpenAI integrations with reusable HTML templates.
-- **Campaign operations:** dry-run mode, provider selection, rate limits, retries, and progress streams.
-- **Email quality controls:** address normalization, verification, bounce tracking, and domain throttling.
-- **Operations dashboard:** campaign status, analytics, notifications, provider health, replies, and DLQ management.
-- **Self-hosted by default:** SQLite data and local configuration keep deployment simple for a single operator.
-
-## Architecture
-
-```text
-┌─────────────────────────────────────────────────────────────┐
-│                  Autonomous Outreach System                 │
-├──────────────────────────────┬──────────────────────────────┤
-│ React + Vite dashboard       │ Node.js + Express API        │
-│ campaigns · analytics        │ discovery · AI · sending     │
-└──────────────────────────────┴──────────────────────────────┘
-                               │
-                               ▼
-┌──────────────────────────────┬──────────────────────────────┐
-│ SQLite                       │ External providers           │
-│ leads · sends · replies      │ AI · verification · email    │
-│ metrics · notifications      │ scraping · webhooks          │
-└──────────────────────────────┴──────────────────────────────┘
-```
+**Founders and freelancers** can use the workspace to organize targeted outreach without stitching together multiple tools. **Small sales and marketing teams** can use it as a transparent campaign console with visible lead and provider state. **Developers** can extend the Node.js, React, and SQLite stack with additional discovery, AI, verification, or delivery providers.
 
 ## Quick start
 
@@ -65,13 +65,13 @@ npm run setup-db
 
 ### Run locally
 
-Start the backend:
+Start the backend in one terminal:
 
 ```bash
 npm run dev
 ```
 
-In a second terminal, start the dashboard:
+Start the dashboard in a second terminal:
 
 ```bash
 npm --prefix frontend-new run dev
@@ -90,11 +90,15 @@ pm2 start ecosystem.config.cjs
 pm2 logs autonomous-outreach
 ```
 
+## Safe first run
+
+Before connecting live providers, keep sending disabled or use dry-run mode. Configure a verified sender domain, review the generated content, test with synthetic or opted-in data, and confirm that your outreach process follows the rules applicable to your recipients and jurisdiction.
+
 ## Configuration
 
-Copy `.env.example` to `.env` and configure only the services you need. The complete optional configuration surface is documented in [`config.toml.example`](config.toml.example). Do not commit `.env`, `config.toml`, database files, uploaded documents, or provider credentials.
+Copy `.env.example` to `.env` and configure only the services you need. The complete optional configuration surface is documented in [`config.toml.example`](config.toml.example). Do not commit `.env`, `config.toml`, database files, uploaded documents, provider credentials, or recipient exports.
 
-Common integrations include SMTP, Resend, Gemini, OpenAI, ScraperAPI, ScrapingBee, ZenRows, and email verification providers. Keep sending disabled or use dry-run mode until sender identity, provider limits, templates, and target data have been reviewed.
+Common integrations include SMTP, Resend, Gemini, OpenAI, ScraperAPI, ScrapingBee, ZenRows, and email verification providers. Provider credentials are optional; the dashboard and database setup can be explored before live sending is configured.
 
 ## Useful commands
 
@@ -107,6 +111,24 @@ Common integrations include SMTP, Resend, Gemini, OpenAI, ScraperAPI, ScrapingBe
 | `npm run lint` | Run ESLint |
 | `pm2 start ecosystem.config.cjs` | Run the backend with PM2 |
 
+## Architecture
+
+```text
+┌──────────────────────────────────────────────────────────────┐
+│                  Autonomous Outreach System                  │
+├──────────────────────────────┬───────────────────────────────┤
+│ React + Vite dashboard       │ Node.js + Express API         │
+│ campaigns · analytics        │ discovery · AI · sending      │
+└──────────────────────────────┴───────────────────────────────┘
+                               │
+                               ▼
+┌──────────────────────────────┬───────────────────────────────┐
+│ SQLite                       │ External providers            │
+│ leads · sends · replies      │ AI · verification · email     │
+│ metrics · notifications      │ scraping · webhooks           │
+└──────────────────────────────┴───────────────────────────────┘
+```
+
 ## Project structure
 
 ```text
@@ -114,7 +136,7 @@ Common integrations include SMTP, Resend, Gemini, OpenAI, ScraperAPI, ScrapingBe
 ├── server.js                 # Express API and application wiring
 ├── db.js                     # SQLite schema and data access helpers
 ├── config.js                 # Environment/TOML configuration loader
-├── send-engine.js            # Main campaign delivery engine
+├── send-engine.js            # Campaign delivery engine
 ├── scan-engine.js            # Lead discovery engine
 ├── ai-advisor.js             # AI personalization and reply analysis
 ├── frontend-new/             # React + Vite dashboard
@@ -123,15 +145,21 @@ Common integrations include SMTP, Resend, Gemini, OpenAI, ScraperAPI, ScrapingBe
 ├── scripts/setup-db.mjs      # Database initialization command
 ├── assets/                   # README and social preview assets
 ├── ecosystem.config.cjs      # PM2 process configuration
-├── .env.example              # Safe configuration template
+├── .github/workflows/ci.yml  # Pull request and main-branch checks
 └── README.md
 ```
 
+## Roadmap
+
+| Status | Focus |
+|---|---|
+| **Available** | Lead discovery, email verification, AI-assisted personalization, campaign delivery, provider fallback, analytics, replies, DLQ, SQLite persistence, and React dashboard. |
+| **Next** | Seed/demo mode, richer campaign review, provider contract tests, and more polished first-run onboarding. |
+| **Later** | Multi-user authentication, hosted deployment presets, granular permissions, and expanded observability. |
+
 ## Development status
 
-The project is actively organized around a self-hosted single-operator workflow. The current roadmap is to improve onboarding, expand provider contract tests, add richer campaign review workflows, and make deployment/monitoring more turnkey.
-
-Before enabling live sending, configure a verified sender domain, test in dry-run mode, review generated content, and confirm that your outreach process follows the rules applicable to your recipients and jurisdiction.
+The project is organized around a self-hosted single-operator workflow. Pull requests run install, database setup, backend tests, lint, and frontend build through GitHub Actions. See [`CHANGELOG.md`](CHANGELOG.md) for the current release history.
 
 ## Contributing
 
@@ -139,7 +167,7 @@ Issues and pull requests are welcome. Please read [`CONTRIBUTING.md`](CONTRIBUTI
 
 ## Security
 
-Please do not publish credentials or sensitive recipient data in an issue. Report suspected vulnerabilities according to [`SECURITY.md`](SECURITY.md).
+Please do not publish credentials or sensitive recipient data in an issue. Review [`SECURITY.md`](SECURITY.md) before connecting live providers.
 
 ## License
 

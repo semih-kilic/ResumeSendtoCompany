@@ -14,11 +14,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Contributing guidelines
 - Code of Conduct
 - Security policy and vulnerability reporting process
-- Social preview images for better GitHub presence
+- Dashboard, workflow, and social preview SVG assets
+- Demo walkthrough guide for safe screenshots and recordings
+- GitHub Actions CI workflow for install, test, lint, and build verification
 
 ### Changed
 - Improved project structure documentation
-- Enhanced README with badges and visual elements
+- Redesigned README as a product-oriented visual showcase
+- Added product tour, target-user messaging, safe first-run guidance, and roadmap
 - Updated installation instructions
 
 ### Fixed

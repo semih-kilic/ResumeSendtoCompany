@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Autonomous Outreach System social preview</title>
+  <desc id="desc">Social preview card for an AI-assisted self-hosted outreach system.</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#172a4a"/></linearGradient><linearGradient id="glow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#55e6a5"/><stop offset="1" stop-color="#55c7ff"/></linearGradient></defs>
+  <rect width="1280" height="640" fill="url(#bg)"/><circle cx="1090" cy="120" r="260" fill="#55e6a5" opacity=".08"/><circle cx="1110" cy="120" r="170" fill="#55c7ff" opacity=".07"/>
+  <rect x="72" y="72" width="1136" height="496" rx="28" fill="#0b182b" stroke="#294263" stroke-width="2"/>
+  <circle cx="150" cy="150" r="28" fill="url(#glow)"/><path d="M138 150h24M150 138v24" stroke="#07111f" stroke-width="6" stroke-linecap="round"/>
+  <text x="204" y="144" fill="#f8fbff" font-family="Inter,Arial" font-size="26" font-weight="800" letter-spacing="2">AUTONOMOUS OUTREACH SYSTEM</text><text x="204" y="176" fill="#7f96b5" font-family="Inter,Arial" font-size="16">AI-assisted lead discovery and campaign automation</text>
+  <text x="132" y="292" fill="#f8fbff" font-family="Inter,Arial" font-size="52" font-weight="800">Turn signals into</text><text x="132" y="354" fill="#55e6a5" font-family="Inter,Arial" font-size="52" font-weight="800">better conversations.</text><text x="134" y="404" fill="#a5b7ce" font-family="Inter,Arial" font-size="18">Discover · verify · personalize · review · measure</text>
+  <g transform="translate(870 238)"><rect width="260" height="184" rx="18" fill="#101f36" stroke="#2c486b"/><text x="28" y="42" fill="#8295b2" font-family="Inter,Arial" font-size="12">CAMPAIGN OVERVIEW</text><text x="28" y="92" fill="#f8fbff" font-family="Inter,Arial" font-size="38" font-weight="700">2,481</text><text x="28" y="116" fill="#55e6a5" font-family="Inter,Arial" font-size="13">verified leads</text><rect x="28" y="142" width="200" height="8" rx="4" fill="#203653"/><rect x="28" y="142" width="164" height="8" rx="4" fill="url(#glow)"/></g>
+  <text x="132" y="510" fill="#55c7ff" font-family="Inter,Arial" font-size="14" font-weight="700" letter-spacing="1.8">SELF-HOSTED · NODE.JS · REACT · SQLITE</text>
+</svg>
