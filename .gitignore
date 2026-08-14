@@ -1,0 +1,64 @@
+# Runtime secrets and local config
+config.toml
+app/config.toml
+*.bak
+*.bak-*
+*.bootle_*
+.env
+.env.*
+!.env.example
+
+# Databases, uploads, generated documents, and logs
+**/data/
+**/logs/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.out
+*.err
+error.txt
+lint_out.txt
+rebuild_out.txt
+smoke_out.txt
+runtime-test*.log
+runtime-test*.err.log
+
+# Dependencies and builds
+node_modules/
+dist/
+build/
+coverage/
+.cache/
+
+# Generated documents / local artifacts
+*.pdf
+*.docx
+*.xlsx
+*.csv
+
+# One-off repair/debug scripts that may contain historical credentials
+fix_*.py
+patch_*.py
+add_nvidia.py
+integrate_nvidia.py
+test_*openai*.py
+test_*gemini*.py
+test_*api_key*.py
+test_*smtp*.py
+test_reoon.py
+app/fix_*.py
+app/patch_*.py
+app/add_nvidia.py
+app/integrate_nvidia.py
+app/test_*openai*.py
+app/test_*gemini*.py
+app/test_*api_key*.py
+app/test_*smtp*.py
+app/test_reoon.py
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
