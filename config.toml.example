@@ -1,15 +1,16 @@
 smtp_password = ""
 webhook_url = ""
 verify_emails = true
-smtp_from_name = "Semih Kilic"
+smtp_from_name = "Your Name"
 smtp_from_email = "your-email@example.com"
 smtp_tls = true
 tracking_base_url = ""
-saas_from_name = "CyberSec Pro"
+saas_from_name = "Your Company"
 saas_from_email = "sales@example.com"
 saas_followup_days = 3
 hot_lead_threshold = 3
-email_subject = "Job Application ({{company_name}}) - Semih Kilic | IT Systems Administrator & Support Specialist | Authorized to Work in Canada (OWP)"
+# Job Search Mode: used when job_fit_enabled = true. {{company_name}} is filled in per target.
+email_subject = "Application ({{company_name}}) - Your Name | Your Title"
 resume_path = "./data/resume.pdf"
 resend_api_key = ""
 resend_from_email = "verified@example.com"
@@ -25,6 +26,7 @@ scraperapi_key = ""
 openai_api_key = ""
 gemini_api_key = ""
 ai_personalization_enabled = true
+# Job Search Mode toggle. Set false and configure saas_* fields for B2B Sales Mode.
 job_fit_enabled = true
 job_fit_min_score = 45
 outreach_review_enabled = true
@@ -42,7 +44,7 @@ smtp_port = 465
 smtp_username = ""
 batch_pause_mins = 30
 limitbreak_url = "http://localhost:8080"
-limitbreak_key = "canada-scrape-key"
+limitbreak_key = "your-scrape-key"
 
 [[smtp_pool]]
 host = "smtp.gmail.com"
@@ -60,7 +62,7 @@ password = ""
 from_email = ""
 tls = true
 id = "c3fd5a25-e148-4e4e-9ea5-72f98913ce10"
-saas_from_name = "CyberSec Pro"
+saas_from_name = "Your Company"
 saas_from_email = "sales@example.com"
 saas_followup_days = 3
 hot_lead_threshold = 3
