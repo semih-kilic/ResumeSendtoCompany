@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-grad)"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="1200" height="80" fill="rgba(255,255,255,0.05)"/>
+  <text x="40" y="50" font-family="Arial" font-size="24" font-weight="bold" fill="white">ResumeSendtoCompany Dashboard</text>
+  
+  <!-- Stats Cards -->
+  <g transform="translate(40, 120)">
+    <rect width="250" height="150" rx="15" fill="url(#card-grad)"/>
+    <text x="125" y="60" text-anchor="middle" font-family="Arial" font-size="16" fill="white">Emails Sent</text>
+    <text x="125" y="100" text-anchor="middle" font-family="Arial" font-size="36" font-weight="bold" fill="white">12,847</text>
+  </g>
+  
+  <g transform="translate(320, 120)">
+    <rect width="250" height="150" rx="15" fill="rgba(102,126,234,0.3)"/>
+    <text x="125" y="60" text-anchor="middle" font-family="Arial" font-size="16" fill="white">Leads Found</text>
+    <text x="125" y="100" text-anchor="middle" font-family="Arial" font-size="36" font-weight="bold" fill="white">8,234</text>
+  </g>
+  
+  <g transform="translate(600, 120)">
+    <rect width="250" height="150" rx="15" fill="rgba(118,75,162,0.3)"/>
+    <text x="125" y="60" text-anchor="middle" font-family="Arial" font-size="16" fill="white">Response Rate</text>
+    <text x="125" y="100" text-anchor="middle" font-family="Arial" font-size="36" font-weight="bold" fill="white">24.7%</text>
+  </g>
+  
+  <g transform="translate(880, 120)">
+    <rect width="250" height="150" rx="15" fill="rgba(240,147,251,0.3)"/>
+    <text x="125" y="60" text-anchor="middle" font-family="Arial" font-size="16" fill="white">Campaigns Active</text>
+    <text x="125" y="100" text-anchor="middle" font-family="Arial" font-size="36" font-weight="bold" fill="white">15</text>
+  </g>
+  
+  <!-- Chart Area -->
+  <rect x="40" y="300" width="700" height="280" rx="15" fill="rgba(255,255,255,0.05)"/>
+  <text x="60" y="340" font-family="Arial" font-size="18" font-weight="bold" fill="white">Email Performance Over Time</text>
+  
+  <!-- Simple line chart -->
+  <polyline points="60,520 100,480 140,500 180,440 220,460 260,400 300,420 340,360 380,380 420,320 460,340 500,280 540,300 580,240 620,260 660,200 700,220" 
+            fill="none" stroke="url(#card-grad)" stroke-width="3"/>
+  
+  <!-- Activity Feed -->
+  <rect x="780" y="300" width="380" height="280" rx="15" fill="rgba(255,255,255,0.05)"/>
+  <text x="800" y="340" font-family="Arial" font-size="18" font-weight="bold" fill="white">Recent Activity</text>
+  
+  <g transform="translate(800, 370)">
+    <circle cx="10" cy="10" r="5" fill="#4CAF50"/>
+    <text x="25" y="15" font-family="Arial" font-size="12" fill="white">Campaign "Tech Outreach" started</text>
+  </g>
+  
+  <g transform="translate(800, 400)">
+    <circle cx="10" cy="10" r="5" fill="#2196F3"/>
+    <text x="25" y="15" font-family="Arial" font-size="12" fill="white">500 new leads discovered</text>
+  </g>
+  
+  <g transform="translate(800, 430)">
+    <circle cx="10" cy="10" r="5" fill="#FF9800"/>
+    <text x="25" y="15" font-family="Arial" font-size="12" fill="white">AI generated 200 personalized emails</text>
+  </g>
+  
+  <g transform="translate(800, 460)">
+    <circle cx="10" cy="10" r="5" fill="#9C27B0"/>
+    <text x="25" y="15" font-family="Arial" font-size="12" fill="white">Email deliverability: 94.2%</text>
+  </g>
+  
+  <g transform="translate(800, 490)">
+    <circle cx="10" cy="10" r="5" fill="#f44336"/>
+    <text x="25" y="15" font-family="Arial" font-size="12" fill="white">12 new responses received</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="610" text-anchor="middle" font-family="Arial" font-size="14" fill="rgba(255,255,255,0.5)">Autonomous Outreach System • Built with Node.js, React & AI</text>
+</svg>
