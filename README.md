@@ -1,7 +1,7 @@
 # ResumeSendtoCompany - Autonomous Outreach System
 
 <div align="center">
-  <img src="https://github.com/semih-kilic/ResumeSendtoCompany/raw/refs/heads/main/assets/logo-simple.svg" alt="ResumeSendtoCompany Logo">
+  <img src="https://raw.githubusercontent.com/semih-kilic/ResumeSendtoCompany/refs/heads/main/assets/logo-simple.svg" alt="ResumeSendtoCompany Logo">
   <br>
   <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen" alt="Production Ready">
   <img src="https://img.shields.io/badge/Node.js-18%2B-brightgreen" alt="Node.js 18+">
@@ -13,7 +13,7 @@
 
 ## 🖼️ Preview
 
-<img src="https://github.com/semih-kilic/ResumeSendtoCompany/raw/refs/heads/main/assets/demo-preview.svg" alt="ResumeSendtoCompany Dashboard Preview">
+<img src="https://raw.githubusercontent.com/semih-kilic/ResumeSendtoCompany/refs/heads/main/assets/demo-preview.svg" alt="ResumeSendtoCompany Dashboard Preview">
 
 ## 📋 Overview
 

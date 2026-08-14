@@ -80,5 +80,5 @@
   </g>
   
   <!-- Footer -->
-  <text x="600" y="610" text-anchor="middle" font-family="Arial" font-size="14" fill="rgba(255,255,255,0.5)">Autonomous Outreach System • Built with Node.js, React & AI</text>
+  <text x="600" y="610" text-anchor="middle" font-family="Arial" font-size="14" fill="rgba(255,255,255,0.5)">Autonomous Outreach System • Built with Node.js, React &amp; AI</text>
 </svg>
