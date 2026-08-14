@@ -1,1 +1,0 @@
-This file is a placeholder. See PR description: package.json "name" field was "lets-go-to-finland-backend" (stale from an earlier project pivot). Recommend renaming to "autonomous-outreach-system" in both /package.json and /app/package.json. Not auto-edited here because the exact json formatting/ordering should be preserved by hand or with a proper JSON patch.
