@@ -1,8 +1,7 @@
-# 🚀 ResumeSendtoCompany - Autonomous Outreach System
+# ResumeSendtoCompany - Autonomous Outreach System
 
 <div align="center">
-  <h1>🚀 ResumeSendtoCompany</h1>
-  <h3>Autonomous Outreach System</h3>
+  <img src="https://raw.githubusercontent.com/semih-kilic/ResumeSendtoCompany/main/assets/logo-simple.svg" alt="ResumeSendtoCompany Logo">
   <br>
   <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen" alt="Production Ready">
   <img src="https://img.shields.io/badge/Node.js-18%2B-brightgreen" alt="Node.js 18+">
