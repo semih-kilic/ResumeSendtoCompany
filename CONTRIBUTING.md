@@ -1,6 +1,6 @@
-# Contributing to ResumeSendtoCompany
+# Contributing to Autonomous Outreach System
 
-Thank you for your interest in contributing to ResumeSendtoCompany! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to Autonomous Outreach System! This document provides guidelines and instructions for contributing to the project.
 
 ## 🤝 How to Contribute
 
@@ -28,7 +28,7 @@ Enhancement suggestions are welcome! Please provide:
 
 1. **Fork the repository**
    ```bash
-   git clone https://github.com/semih-kilic/ResumeSendtoCompany.git
+   git clone https://github.com/semih-kilic/Autonomous-Outreach-System.git
    ```
 
 2. **Create a feature branch**
@@ -134,4 +134,4 @@ By participating in this project, you agree to maintain a respectful and inclusi
 
 ---
 
-Thank you for contributing to ResumeSendtoCompany! 🚀
+Thank you for contributing to Autonomous Outreach System! 🚀

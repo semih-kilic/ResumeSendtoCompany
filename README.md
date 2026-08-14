@@ -1,313 +1,146 @@
-# ResumeSendtoCompany - Autonomous Outreach System
+# Autonomous Outreach System
 
-<div align="center">
-  <h1>🚀 ResumeSendtoCompany</h1>
-  <h3>Autonomous Outreach System</h3>
-  <br>
-  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen" alt="Production Ready">
-  <img src="https://img.shields.io/badge/Node.js-18%2B-brightgreen" alt="Node.js 18+">
-  <img src="https://img.shields.io/badge/License-MIT-blue" alt="MIT License">
-  <img src="https://img.shields.io/badge/AI-Gemini%201.5%20Flash-orange" alt="Gemini 1.5 Flash">
-  <img src="https://img.shields.io/github/stars/semih-kilic/ResumeSendtoCompany" alt="GitHub Stars">
-  <img src="https://img.shields.io/github/forks/semih-kilic/ResumeSendtoCompany" alt="GitHub Forks">
-</div>
+> **AI-assisted lead discovery, personalization, and campaign automation for targeted B2B outreach.**
 
-## 🖼️ Preview
+[![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?logo=react&logoColor=111827)](https://react.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Tests](https://img.shields.io/badge/tests-Node%20test%20runner-0f766e)](tests/)
 
-<img src="https://raw.githubusercontent.com/semih-kilic/ResumeSendtoCompany/refs/heads/main/assets/dashboard-simple.svg" alt="ResumeSendtoCompany Dashboard Preview">
+![Autonomous Outreach System dashboard](assets/dashboard-simple.svg)
 
-## 📋 Overview
+## What it does
 
-ResumeSendtoCompany is a production-grade, 24/7 autonomous outreach system designed for lead discovery, LinkedIn enrichment, and personalized AI-driven campaign delivery. It automates the entire process from finding leads to sending personalized emails with AI-generated content.
+Autonomous Outreach System brings lead discovery, email verification, AI-assisted personalization, campaign delivery, and campaign analytics into one self-hosted dashboard. It is designed for controlled, transparent outreach workflows where the operator can review leads and configure sending providers before a campaign starts.
 
-## ✨ Key Features
+The repository includes a Node.js/Express backend, a React/Vite dashboard, SQLite persistence, provider fallback support, email verification, reply monitoring, campaign metrics, and a dead-letter queue for failed work.
 
-### 🔍 Autonomous Discovery
-- **Multi-Source Scraping:** Continuous scanning of Canadian business directories (YellowPages, BBB, Chamber of Commerce)
-- **Google Dorks Integration:** Advanced search patterns for targeted lead discovery
-- **Smart Filtering:** AI-powered lead qualification and enrichment
+## Highlights
 
-### 🤖 AI-Powered Personalization
-- **Real-time Content Generation:** Uses Gemini 1.5 Flash for personalized email intros
-- **Dynamic Templates:** Context-aware email content based on company analysis
-- **Multi-language Support:** Capable of generating content in multiple languages
+- **Lead discovery:** directory, search, and configurable scraping providers.
+- **AI personalization:** Gemini and OpenAI integrations with reusable HTML templates.
+- **Campaign operations:** dry-run mode, provider selection, rate limits, retries, and progress streams.
+- **Email quality controls:** address normalization, verification, bounce tracking, and domain throttling.
+- **Operations dashboard:** campaign status, analytics, notifications, provider health, replies, and DLQ management.
+- **Self-hosted by default:** SQLite data and local configuration keep deployment simple for a single operator.
 
-### 📧 Intelligent Email System
-- **SMTP Relay Pool:** Intelligent rotation between Gmail, Resend, Yandex, and Brevo
-- **Multi-layer Verification:** Domain Trust → MX Check → Provider APIs
-- **Shield Mode:** Sender reputation protection with advanced rate limiting
-- **Deliverability Optimization:** SPF, DKIM, and DMARC compliance checking
+## Architecture
 
-### 🎯 SaaS Sales Engine
-- **Specialized Campaigns:** B2B SaaS outreach with automated multi-step follow-ups
-- **Lead Scoring:** AI-based qualification of potential customers
-- **Conversion Tracking:** Monitor engagement and response rates
-
-## 🛠 Technical Architecture
-
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
-│                    ResumeSendtoCompany                      │
-├─────────────────────────────────────────────────────────────┤
-│  Frontend (React + Vite)  │  Backend (Node.js + Express)    │
-│  - Dashboard              │  - API Server                  │
-│  - Analytics              │  - Job Queue (PM2)             │
-│  - Campaign Management    │  - Email Engines               │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│              Data Layer & Integrations                      │
-├─────────────────────────────────────────────────────────────┤
-│  SQLite Database          │  External APIs                 │
-│  - Leads                  │  - Gemini AI                   │
-│  - Campaigns              │  - Scraping Services           │
-│  - Analytics              │  - Email Providers             │
-│  - Logs                   │  - Verification APIs           │
-└─────────────────────────────────────────────────────────────┘
+│                  Autonomous Outreach System                 │
+├──────────────────────────────┬──────────────────────────────┤
+│ React + Vite dashboard       │ Node.js + Express API        │
+│ campaigns · analytics        │ discovery · AI · sending     │
+└──────────────────────────────┴──────────────────────────────┘
+                               │
+                               ▼
+┌──────────────────────────────┬──────────────────────────────┐
+│ SQLite                       │ External providers           │
+│ leads · sends · replies      │ AI · verification · email    │
+│ metrics · notifications      │ scraping · webhooks          │
+└──────────────────────────────┴──────────────────────────────┘
 ```
 
-### Tech Stack
-- **Backend:** Node.js (Express.js)
-- **Frontend:** React + Vite + Tailwind CSS
-- **Database:** SQLite with custom ORM
-- **Process Management:** PM2 with autonomous watchdog
-- **AI Integration:** Google Gemini 1.5 Flash & OpenAI
-- **Scraping:** ScraperAPI, ScrapingBee, ZenRows with fallbacks
-- **Email Providers:** Gmail, Resend, Yandex, Brevo
+## Quick start
 
-## 📁 Project Structure
+### Requirements
 
-```
-ResumeSendtoCompany/
-├── app/                      # Main application directory
-│   ├── server.js            # Express server
-│   ├── db.js                # Database handler
-│   ├── config.js            # Configuration loader
-│   ├── send-engine.js       # Email sending engine
-│   ├── scan-engine.js       # Lead discovery engine
-│   ├── ai-advisor.js        # AI content generation
-│   ├── verifier.js          # Email verification
-│   ├── templates/           # Email templates
-│   ├── tests/               # Unit tests
-│   └── scripts/             # Utility scripts
-├── frontend-new/            # React frontend
-│   ├── src/
-│   │   ├── components/     # Reusable components
-│   │   ├── pages/          # Page components
-│   │   └── hooks/          # Custom React hooks
-│   └── package.json
-├── assets/                 # Images and visual assets
-│   ├── logo.svg           # Project logo
-│   ├── demo-preview.svg   # Dashboard preview
-│   └── opengraph-image.svg # Social preview
-├── config/                 # Configuration files
-├── data/                   # Runtime data (gitignored)
-├── logs/                   # Application logs (gitignored)
-├── ecosystem.config.cjs    # PM2 configuration
-├── package.json
-├── .env.example            # Environment variables template
-└── README.md
-```
+- Node.js 18 or newer
+- npm
+- API credentials only for the integrations you plan to enable
 
-## 🚀 Getting Started
+### Install and initialize
 
-### Prerequisites
-- Node.js 18+ 
-- npm or yarn
-- Git
-
-### Installation
-
-1. **Clone the repository**
 ```bash
-git clone https://github.com/semih-kilic/ResumeSendtoCompany.git
-cd ResumeSendtoCompany
-```
-
-2. **Install dependencies**
-```bash
-npm install
-cd frontend-new && npm install
-```
-
-3. **Configure environment**
-```bash
+git clone https://github.com/semih-kilic/Autonomous-Outreach-System.git
+cd Autonomous-Outreach-System
+npm ci
+npm --prefix frontend-new ci
 cp .env.example .env
-# Edit .env with your API keys and configuration
-```
-
-4. **Setup database**
-```bash
 npm run setup-db
 ```
 
-5. **Start the application**
+`npm run setup-db` creates the local SQLite database under `data/` and applies the application schema. Runtime data, logs, uploads, and local secrets are ignored by Git.
+
+### Run locally
+
+Start the backend:
+
 ```bash
-# Development mode
 npm run dev
+```
 
-# Production mode with PM2
+In a second terminal, start the dashboard:
+
+```bash
+npm --prefix frontend-new run dev
+```
+
+The Vite development server proxies `/api` requests to `http://localhost:3002`. To create a production frontend bundle, run:
+
+```bash
+npm run frontend:build
+```
+
+For a single-host PM2 deployment:
+
+```bash
 pm2 start ecosystem.config.cjs
-pm2 logs canada-omega
+pm2 logs autonomous-outreach
 ```
 
-## ⚙️ Configuration
+## Configuration
 
-### Environment Variables
+Copy `.env.example` to `.env` and configure only the services you need. The complete optional configuration surface is documented in [`config.toml.example`](config.toml.example). Do not commit `.env`, `config.toml`, database files, uploaded documents, or provider credentials.
 
-Key environment variables in `.env`:
+Common integrations include SMTP, Resend, Gemini, OpenAI, ScraperAPI, ScrapingBee, ZenRows, and email verification providers. Keep sending disabled or use dry-run mode until sender identity, provider limits, templates, and target data have been reviewed.
 
-```env
-# Server Configuration
-PORT=3000
-NODE_ENV=production
+## Useful commands
 
-# Database
-DB_PATH=./data/canada.db
+| Command | Purpose |
+|---|---|
+| `npm run setup-db` | Create or initialize the local SQLite database |
+| `npm run dev` | Start the backend in development mode |
+| `npm run frontend:build` | Build the React dashboard for production |
+| `npm test` | Run the Node.js test suite |
+| `npm run lint` | Run ESLint |
+| `pm2 start ecosystem.config.cjs` | Run the backend with PM2 |
 
-# AI Services
-GEMINI_API_KEY=your_gemini_api_key
-OPENAI_API_KEY=your_openai_api_key
+## Project structure
 
-# Email Providers
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your_email@gmail.com
-SMTP_PASS=your_app_password
-
-# Scraping Services
-SCRAPER_API_KEY=your_scraper_api_key
-SCRAPING_BEE_KEY=your_scraping_bee_key
+```text
+.
+├── server.js                 # Express API and application wiring
+├── db.js                     # SQLite schema and data access helpers
+├── config.js                 # Environment/TOML configuration loader
+├── send-engine.js            # Main campaign delivery engine
+├── scan-engine.js            # Lead discovery engine
+├── ai-advisor.js             # AI personalization and reply analysis
+├── frontend-new/             # React + Vite dashboard
+├── templates/                # HTML campaign templates
+├── tests/                    # Node.js tests
+├── scripts/setup-db.mjs      # Database initialization command
+├── assets/                   # README and social preview assets
+├── ecosystem.config.cjs      # PM2 process configuration
+├── .env.example              # Safe configuration template
+└── README.md
 ```
 
-### Configuration File
+## Development status
 
-Detailed settings in `config.toml`:
+The project is actively organized around a self-hosted single-operator workflow. The current roadmap is to improve onboarding, expand provider contract tests, add richer campaign review workflows, and make deployment/monitoring more turnkey.
 
-```toml
-[smtp_pool]
-rotation_enabled = true
-providers = ["gmail", "resend", "yandex", "brevo"]
-rate_limit = 100  # emails per hour
+Before enabling live sending, configure a verified sender domain, test in dry-run mode, review generated content, and confirm that your outreach process follows the rules applicable to your recipients and jurisdiction.
 
-[verification]
-strict_mode = true
-timeout = 30  # seconds
+## Contributing
 
-[scraping]
-concurrent_requests = 5
-timeout = 15  # seconds
-fallback_enabled = true
-```
+Issues and pull requests are welcome. Please read [`CONTRIBUTING.md`](CONTRIBUTING.md), keep changes focused, add tests for behavior changes, and update the README when commands or project structure change.
 
-## 📊 Usage Examples
+## Security
 
-### Starting a Campaign
+Please do not publish credentials or sensitive recipient data in an issue. Report suspected vulnerabilities according to [`SECURITY.md`](SECURITY.md).
 
-```javascript
-// Create a new campaign
-const campaign = {
-  name: "Tech Startup Outreach",
-  target_industry: "SaaS",
-  location: "Canada",
-  email_template: "saas-pitch"
-};
+## License
 
-await createCampaign(campaign);
-```
-
-### Manual Lead Discovery
-
-```bash
-# Run lead discovery for specific region
-npm run discover -- --region "Toronto" --industry "Technology"
-```
-
-### Email Verification
-
-```javascript
-// Verify email before sending
-const result = await verifyEmail("contact@company.com");
-console.log(result.valid, result.trust_score);
-```
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-npm test
-
-# Run specific test suite
-npm test -- --grep "email-engine"
-
-# Run with coverage
-npm test -- --coverage
-```
-
-## 📈 Monitoring & Analytics
-
-### Dashboard Access
-- **URL:** `http://localhost:3000`
-- **Features:** Real-time statistics, campaign performance, email deliverability
-
-### PM2 Monitoring
-```bash
-pm2 monit
-pm2 logs canada-omega --lines 100
-```
-
-### Key Metrics
-- **Email Sent Rate:** Number of emails sent per hour
-- **Deliverability:** Percentage of emails reaching inbox
-- **Response Rate:** Engagement from recipients
-- **Lead Quality:** Score of discovered leads
-
-## 🔒 Security Best Practices
-
-1. **Never commit `.env` or `config.toml`** to version control
-2. **Use environment variables** for all sensitive data
-3. **Rotate API keys** regularly
-4. **Monitor rate limits** to avoid provider blocks
-5. **Enable SPF/DKIM/DMARC** for email domains
-6. **Use VPN/proxy rotation** for scraping operations
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-- Follow existing code style
-- Write tests for new features
-- Update documentation
-- Ensure all tests pass
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- **Google Gemini** for AI-powered content generation
-- **Scraping service providers** for reliable data extraction
-- **Open source community** for various libraries and tools
-
-## 📞 Support
-
-For support, email me@semihkilic.com or open an issue in the GitHub repository.
-
-## 🌟 Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=semih-kilic/ResumeSendtoCompany&type=Date)](https://star-history.com/#semih-kilic/ResumeSendtoCompany&Date)
-
----
-
-<div align="center">
-  <sub>Built with ❤️ by <a href="https://github.com/semih-kilic">Semih Kılıç</a></sub>
-</div>
+This project is released under the [MIT License](LICENSE).

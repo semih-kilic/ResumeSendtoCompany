@@ -1,4 +1,5 @@
 import Database from 'better-sqlite3';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { normalizeEmail, isValidEmailForSend } from './email-utils.js';
@@ -6,7 +7,9 @@ import { normalizeEmail, isValidEmailForSend } from './email-utils.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export function initDatabase(dbPath) {
-  const db = new Database(dbPath || path.join(__dirname, 'data', 'canada.db'));
+  const resolvedPath = dbPath || path.join(__dirname, 'data', 'canada.db');
+  fs.mkdirSync(path.dirname(resolvedPath), { recursive: true });
+  const db = new Database(resolvedPath);
   
   db.pragma('journal_mode = WAL');
   db.pragma('foreign_keys = ON');
@@ -521,6 +524,16 @@ export function getUnsentSaaS(db) {
     SELECT * FROM RankedEmails WHERE rn <= 2
     ORDER BY found_date ASC
   `).all() || [];
+}
+
+// Count helpers intentionally share the selection rules with the queue readers.
+// Keeping these as exported APIs prevents callers from duplicating queue semantics.
+export function countUnsentJob(db) {
+  return getUnsent(db).length;
+}
+
+export function countUnsentSaaS(db) {
+  return getUnsentSaaS(db).length;
 }
 
 export function getSaaSFollowupCandidates(db, daysDelay = 3) {

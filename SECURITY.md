@@ -1,100 +1,37 @@
 # Security Policy
 
-## Supported Versions
+## Supported versions
 
-| Version | Supported          |
-|---------|--------------------|
-| 1.x.x   | :white_check_mark: |
+| Version | Supported |
+|---|---|
+| 1.x.x | Yes |
 
-## Reporting a Vulnerability
+## Reporting a vulnerability
 
-If you discover a security vulnerability in ResumeSendtoCompany, please report it responsibly.
+Please do not publish credentials, personal data, or a reproducible security vulnerability in a public issue. If GitHub Private Vulnerability Reporting is enabled for this repository, use the **Report a vulnerability** option in the repository's **Security** tab. Otherwise, contact the repository maintainer privately through the GitHub profile associated with this project.
 
-### How to Report
+Include a short description, affected file or endpoint, reproduction steps, impact assessment, and a suggested mitigation when available. Please allow reasonable time for triage before public disclosure.
 
-**Please do NOT report security vulnerabilities through public GitHub issues.**
+## Deployment guidance
 
-Instead, please send an email to: [security@resumesendtocompany.com](mailto:security@resumesendtocompany.com)
+This project can send email and connect to external providers. Before exposing it beyond a trusted local network, review the deployment configuration, protect the API behind authentication and a private network boundary, keep credentials outside Git, and use a dedicated test account or dry-run mode.
 
-Include the following information in your report:
-- A description of the vulnerability
-- Steps to reproduce the vulnerability
-- Potential impact of the vulnerability
-- Any suggested fixes or mitigations
+Never commit `.env`, `config.toml`, API keys, SMTP passwords, recipient exports, uploaded documents, database files, or logs containing personal data. Rotate any credential that is accidentally exposed.
 
-### What to Expect
+## Dependency and data hygiene
 
-- We will acknowledge receipt of your report within 48 hours
-- We will provide a detailed response within 7 days
-- We will work with you to understand and resolve the issue
-- We will notify you when the issue has been fixed
-- We will credit you in the release notes (unless you prefer to remain anonymous)
-
-### Security Best Practices
-
-When using ResumeSendtoCompany, please follow these security best practices:
-
-1. **Never commit sensitive data**
-   - Do not commit `.env` files
-   - Do not commit `config.toml` with real credentials
-   - Do not commit API keys, passwords, or tokens
-
-2. **Use environment variables**
-   - Store sensitive configuration in environment variables
-   - Use secret management services in production
-   - Rotate credentials regularly
-
-3. **Keep dependencies updated**
-   - Regularly update dependencies
-   - Use `npm audit` to check for vulnerabilities
-   - Apply security patches promptly
-
-4. **Secure your database**
-   - Use strong database passwords
-   - Enable database encryption if available
-   - Regular database backups
-
-5. **Email security**
-   - Use SPF, DKIM, and DMARC for email domains
-   - Monitor email deliverability
-   - Use secure SMTP connections (TLS)
-
-### Dependency Security
-
-We regularly audit our dependencies for known vulnerabilities. You can check the security status of our dependencies by running:
+Run the following checks before a release:
 
 ```bash
+npm ci
 npm audit
+npm test
+npm run lint
+npm run frontend:build
 ```
 
-If you find a security vulnerability in any of our dependencies, please report it following the same process.
+Keep SQLite data and generated files in the ignored `data/` directory. Back up operational data securely and verify that backups do not contain credentials or unnecessary personal information.
 
-### Security Features
+## Scope
 
-ResumeSendtoCompany includes several security features:
-
-- **Input validation**: All user inputs are validated and sanitized
-- **SQL injection protection**: Parameterized queries are used for database operations
-- **XSS protection**: Content is properly escaped when rendering user input
-- **Rate limiting**: API endpoints are rate-limited to prevent abuse
-- **Authentication**: Secure authentication mechanisms are implemented
-- **Encryption**: Sensitive data is encrypted at rest when possible
-
-## Security Updates
-
-Security updates will be announced through:
-- GitHub Security Advisories
-- Release notes
-- Security email list (subscribe by emailing security-subscribe@resumesendtocompany.com)
-
-We recommend subscribing to security notifications to stay informed about important security updates.
-
-## Responsible Disclosure
-
-We appreciate responsible security disclosures and will work with researchers to:
-- Understand the issue
-- Develop a fix
-- Coordinate disclosure to minimize user impact
-- Credit researchers for their contributions
-
-Thank you for helping keep ResumeSendtoCompany and our users safe!
+Security reports may cover the backend API, dashboard, file upload handling, email provider integrations, scraping integrations, AI provider data handling, dependency vulnerabilities, and accidental secret exposure.

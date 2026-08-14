@@ -1,49 +1,13 @@
-# 🇨🇦 Canada Omega - Autonomous Outreach Engine
+# Backend mirror
 
-Canada Omega is a production-grade, 24/7 autonomous outreach system designed for lead discovery, LinkedIn enrichment, and personalized AI-driven campaign delivery.
+The canonical application entry point is at the repository root. The `app/` directory is retained as a compatibility mirror for existing scripts and deployments; new development should update and test the root files first.
 
-## 🚀 Core Features
+For the supported setup and commands, see the root [`README.md`](../README.md). The primary backend modules are `server.js`, `db.js`, `config.js`, `scan-engine.js`, and `send-engine.js`.
 
-- **Autonomous Discovery:** Continuous scanning of Canadian business directories (YellowPages, BBB, Chamber of Commerce) and Google Dorks.
-- **Hybrid Enrichment:** Extracts LinkedIn profiles directly from company websites (On-site Scraping) with fallback to proxy-based search engine enrichment.
-- **Intelligent Verification:** Multi-layer email verification (Domain Trust -> MX Check -> Provider APIs) with a "Shield Mode" for sender reputation protection.
-- **SaaS Sales Engine:** Specialized campaign loop for B2B SaaS outreach with automated multi-step follow-ups.
-- **AI Personalization:** Real-time generation of personalized email intros using Gemini 1.5 Flash.
-- **SMTP Relay Pool:** Intelligent rotation between Gmail, Resend, Yandex, and Brevo to bypass rate limits.
-
-## 🛠 Technical Architecture
-
-- **Backend:** Node.js (Express)
-- **Database:** SQLite (`data/canada.db`)
-- **Orchestration:** PM2 with autonomous watchdog logic.
-- **AI Integration:** Google Gemini & OpenAI.
-- **Scraping Fallbacks:** ScraperAPI, ScrapingBee, ZenRows.
-
-## 📁 Key Directories
-
-- `/backend`: Core logic, engines, and database handlers.
-- `/backend/data`: Persistent storage (Database, CVs, Logs).
-- `/backend/data/logs`: Operational logs for debugging.
-
-## ⚙️ Configuration
-
-Settings are managed via `backend/config.toml`. Key parameters include:
-- `smtp_pool`: Rotation of sender accounts.
-- `verification`: API keys and strictness levels.
-- `scraping`: Proxy providers and concurrency limits.
-
-## 🚦 Operational Commands
+The supported PM2 process name is `autonomous-outreach`:
 
 ```bash
-# Start the system
-pm2 start ecosystem.config.cjs
-
-# Monitor logs
-pm2 logs canada-omega
-
-# Check process status
+pm2 start ../ecosystem.config.cjs
+pm2 logs autonomous-outreach
 pm2 status
 ```
-
----
-*Maintained by Antigravity AI Coding Assistant.*

@@ -1,5 +1,5 @@
 # ============================================================
-# OMEGA Watchdog — 7/24 Guardian for Canada Outreach Engine
+# OMEGA Watchdog — 7/24 Guardian for Autonomous Outreach System
 # ============================================================
 # This script runs every 5 minutes via Windows Task Scheduler.
 # It checks if PM2 is running and the server is responsive.
@@ -44,7 +44,7 @@ function Test-PM2Running {
     try {
         $pm2List = & pm2 jlist 2>$null | ConvertFrom-Json
         foreach ($proc in $pm2List) {
-            if ($proc.name -eq "canada-omega" -and $proc.pm2_env.status -eq "online") {
+            if ($proc.name -eq "autonomous-outreach" -and $proc.pm2_env.status -eq "online") {
                 return $true
             }
         }
@@ -80,7 +80,7 @@ $pm2Running = Test-PM2Running
 if ($pm2Running) {
     Write-WatchdogLog "RECOVERY: PM2 is running but server is unresponsive. Restarting app..."
     Set-Location $backendDir
-    & pm2 restart canada-omega --update-env 2>&1 | ForEach-Object { Write-WatchdogLog "PM2: $_" }
+    & pm2 restart autonomous-outreach --update-env 2>&1 | ForEach-Object { Write-WatchdogLog "PM2: $_" }
 } else {
     Write-WatchdogLog "RECOVERY: PM2 is NOT running. Starting full stack..."
     

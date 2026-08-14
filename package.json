@@ -1,12 +1,14 @@
 {
-  "name": "lets-go-to-finland-backend",
+  "name": "autonomous-outreach-system",
   "version": "1.0.0",
   "type": "module",
   "main": "server.js",
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",
-    "lint": "eslint .",
+    "setup-db": "node scripts/setup-db.mjs",
+    "frontend:build": "npm --prefix frontend-new run build",
+    "lint": "eslint . --ignore-pattern frontend-new/dist",
     "test": "cross-env NODE_ENV=test node --test tests/*.test.js"
   },
   "dependencies": {

@@ -1,10 +1,9 @@
-// PM2 Ecosystem Configuration — 7/24 Immortal Mode
-// Ensures the Canada Outreach Engine never stops running.
+// PM2 ecosystem configuration for Autonomous Outreach System.
 
 module.exports = {
   apps: [
     {
-      name: 'canada-omega',
+      name: 'autonomous-outreach',
       script: 'server.js',
       cwd: __dirname,
       

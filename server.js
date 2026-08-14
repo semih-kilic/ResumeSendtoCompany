@@ -163,8 +163,11 @@ export function createApp() {
     broadcastSSE('saas', 'log', data);
   });
 
-  notificationEngine.start();
-  dlqRetryScheduler.start();
+  // Background workers must not keep the test process alive.
+  if (process.env.NODE_ENV !== 'test') {
+    notificationEngine.start();
+    dlqRetryScheduler.start();
+  }
 
   // Auto-resume on startup (disabled during tests and when DISABLE_AUTO_RESUME is set)
   if (process.env.NODE_ENV !== 'test' && process.env.DISABLE_AUTO_RESUME !== '1') {
@@ -936,7 +939,7 @@ app.get('/api/provider-status', (req, res) => {
 });
 
   // Frontend Catch-all
-  const frontendPath = path.join(__dirname, '..', 'frontend', 'dist');
+  const frontendPath = path.join(__dirname, 'frontend-new', 'dist');
   if (fs.existsSync(frontendPath)) {
     app.use(express.static(frontendPath));
     app.use((req, res, next) => {
