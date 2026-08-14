@@ -1,7 +1,8 @@
 # 🚀 ResumeSendtoCompany - Autonomous Outreach System
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/semih-kilic/ResumeSendtoCompany/main/assets/logo.svg" alt="ResumeSendtoCompany Logo" width="120">
+  <h1>🚀 ResumeSendtoCompany</h1>
+  <h3>Autonomous Outreach System</h3>
   <br>
   <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen" alt="Production Ready">
   <img src="https://img.shields.io/badge/Node.js-18%2B-brightgreen" alt="Node.js 18+">
@@ -299,7 +300,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For support, email support@resumesendtocompany.com or open an issue in the GitHub repository.
+For support, email me@semihkilic.com or open an issue in the GitHub repository.
 
 ## 🌟 Star History
 
