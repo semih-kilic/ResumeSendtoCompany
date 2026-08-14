@@ -1,16 +1,19 @@
 # 🚀 ResumeSendtoCompany - Autonomous Outreach System
 
-  <img src=" assets/logo.svg alt=ResumeSendtoCompany Logo width=120>
-<div align=" center\>
- <img src=\https://img.shields.io/badge/Status-Production%20Ready-brightgreen\ alt=\Production Ready\>
- <img src=\https://img.shields.io/badge/Node.js-18%2B-brightgreen\ alt=\Node.js 18+\>
- <img src=\https://img.shields.io/badge/License-MIT-blue\ alt=\MIT License\>
- <img src=\https://img.shields.io/badge/AI-Gemini%201.5%20Flash-orange\ alt=\Gemini 1.5 Flash\>
- <img src=\https://img.shields.io/github/stars/semih-kilic/ResumeSendtoCompany\ alt=\GitHub Stars\>
-## 🖼️ Preview
-<img src=" assets/demo-preview.svg alt=ResumeSendtoCompany Dashboard Preview>
- <img src=\https://img.shields.io/github/forks/semih-kilic/ResumeSendtoCompany\ alt=\GitHub Forks\>
+<div align="center">
+  <img src="assets/logo.svg" alt="ResumeSendtoCompany Logo" width="120">
+  <br>
+  <img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen" alt="Production Ready">
+  <img src="https://img.shields.io/badge/Node.js-18%2B-brightgreen" alt="Node.js 18+">
+  <img src="https://img.shields.io/badge/License-MIT-blue" alt="MIT License">
+  <img src="https://img.shields.io/badge/AI-Gemini%201.5%20Flash-orange" alt="Gemini 1.5 Flash">
+  <img src="https://img.shields.io/github/stars/semih-kilic/ResumeSendtoCompany" alt="GitHub Stars">
+  <img src="https://img.shields.io/github/forks/semih-kilic/ResumeSendtoCompany" alt="GitHub Forks">
 </div>
+
+## 🖼️ Preview
+
+<img src="assets/demo-preview.svg" alt="ResumeSendtoCompany Dashboard Preview">
 
 ## 📋 Overview
 
@@ -41,27 +44,27 @@ ResumeSendtoCompany is a production-grade, 24/7 autonomous outreach system desig
 
 ## 🛠 Technical Architecture
 
-`
+```
 ┌─────────────────────────────────────────────────────────────┐
-│ ResumeSendtoCompany │
+│                    ResumeSendtoCompany                      │
 ├─────────────────────────────────────────────────────────────┤
-│ Frontend (React + Vite) │ Backend (Node.js + Express) │
-│ - Dashboard │ - API Server │
-│ - Analytics │ - Job Queue (PM2) │
-│ - Campaign Management │ - Email Engines │
+│  Frontend (React + Vite)  │  Backend (Node.js + Express)    │
+│  - Dashboard              │  - API Server                  │
+│  - Analytics              │  - Job Queue (PM2)             │
+│  - Campaign Management    │  - Email Engines               │
 └─────────────────────────────────────────────────────────────┘
- │
- ▼
+                              │
+                              ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ Data Layer & Integrations │
+│              Data Layer & Integrations                      │
 ├─────────────────────────────────────────────────────────────┤
-│ SQLite Database │ External APIs │
-│ - Leads │ - Gemini AI │
-│ - Campaigns │ - Scraping Services │
-│ - Analytics │ - Email Providers │
-│ - Logs │ - Verification APIs │
+│  SQLite Database          │  External APIs                 │
+│  - Leads                  │  - Gemini AI                   │
+│  - Campaigns              │  - Scraping Services           │
+│  - Analytics              │  - Email Providers             │
+│  - Logs                   │  - Verification APIs           │
 └─────────────────────────────────────────────────────────────┘
-`
+```
 
 ### Tech Stack
 - **Backend:** Node.js (Express.js)
@@ -74,33 +77,37 @@ ResumeSendtoCompany is a production-grade, 24/7 autonomous outreach system desig
 
 ## 📁 Project Structure
 
-\\\
+```
 ResumeSendtoCompany/
-├── app/ # Main application directory
-│ ├── server.js # Express server
-│ ├── db.js # Database handler
-│ ├── config.js # Configuration loader
-│ ├── send-engine.js # Email sending engine
-│ ├── scan-engine.js # Lead discovery engine
-│ ├── ai-advisor.js # AI content generation
-│ ├── verifier.js # Email verification
-│ ├── templates/ # Email templates
-│ ├── tests/ # Unit tests
-│ └── scripts/ # Utility scripts
-├── frontend-new/ # React frontend
-│ ├── src/
-│ │ ├── components/ # Reusable components
-│ │ ├── pages/ # Page components
-│ │ └── hooks/ # Custom React hooks
-│ └── package.json
-├── config/ # Configuration files
-├── data/ # Runtime data (gitignored)
-├── logs/ # Application logs (gitignored)
-├── ecosystem.config.cjs # PM2 configuration
+├── app/                      # Main application directory
+│   ├── server.js            # Express server
+│   ├── db.js                # Database handler
+│   ├── config.js            # Configuration loader
+│   ├── send-engine.js       # Email sending engine
+│   ├── scan-engine.js       # Lead discovery engine
+│   ├── ai-advisor.js        # AI content generation
+│   ├── verifier.js          # Email verification
+│   ├── templates/           # Email templates
+│   ├── tests/               # Unit tests
+│   └── scripts/             # Utility scripts
+├── frontend-new/            # React frontend
+│   ├── src/
+│   │   ├── components/     # Reusable components
+│   │   ├── pages/          # Page components
+│   │   └── hooks/          # Custom React hooks
+│   └── package.json
+├── assets/                 # Images and visual assets
+│   ├── logo.svg           # Project logo
+│   ├── demo-preview.svg   # Dashboard preview
+│   └── opengraph-image.svg # Social preview
+├── config/                 # Configuration files
+├── data/                   # Runtime data (gitignored)
+├── logs/                   # Application logs (gitignored)
+├── ecosystem.config.cjs    # PM2 configuration
 ├── package.json
-├── .env.example # Environment variables template
+├── .env.example            # Environment variables template
 └── README.md
-\\\
+```
 
 ## 🚀 Getting Started
 
@@ -112,45 +119,45 @@ ResumeSendtoCompany/
 ### Installation
 
 1. **Clone the repository**
-\\\ash
+```bash
 git clone https://github.com/semih-kilic/ResumeSendtoCompany.git
 cd ResumeSendtoCompany
-\\\
+```
 
 2. **Install dependencies**
-\\\ash
+```bash
 npm install
 cd frontend-new && npm install
-\\\
+```
 
 3. **Configure environment**
-\\\ash
+```bash
 cp .env.example .env
 # Edit .env with your API keys and configuration
-\\\
+```
 
 4. **Setup database**
-\\\ash
+```bash
 npm run setup-db
-\\\
+```
 
 5. **Start the application**
-\\\ash
+```bash
 # Development mode
 npm run dev
 
 # Production mode with PM2
 pm2 start ecosystem.config.cjs
 pm2 logs canada-omega
-\\\
+```
 
 ## ⚙️ Configuration
 
 ### Environment Variables
 
-Key environment variables in \.env\:
+Key environment variables in `.env`:
 
-\\\env
+```env
 # Server Configuration
 PORT=3000
 NODE_ENV=production
@@ -171,83 +178,83 @@ SMTP_PASS=your_app_password
 # Scraping Services
 SCRAPER_API_KEY=your_scraper_api_key
 SCRAPING_BEE_KEY=your_scraping_bee_key
-\\\
+```
 
 ### Configuration File
 
-Detailed settings in \config.toml\:
+Detailed settings in `config.toml`:
 
-\\\ oml
+```toml
 [smtp_pool]
 rotation_enabled = true
-providers = [\gmail\, \resend\, \yandex\, \brevo\]
-rate_limit = 100 # emails per hour
+providers = ["gmail", "resend", "yandex", "brevo"]
+rate_limit = 100  # emails per hour
 
 [verification]
 strict_mode = true
-timeout = 30 # seconds
+timeout = 30  # seconds
 
 [scraping]
 concurrent_requests = 5
-timeout = 15 # seconds
+timeout = 15  # seconds
 fallback_enabled = true
-\\\
+```
 
 ## 📊 Usage Examples
 
 ### Starting a Campaign
 
-\\\javascript
+```javascript
 // Create a new campaign
 const campaign = {
- name: \Tech Startup Outreach\,
- target_industry: \SaaS\,
- location: \Canada\,
- email_template: \saas-pitch\
+  name: "Tech Startup Outreach",
+  target_industry: "SaaS",
+  location: "Canada",
+  email_template: "saas-pitch"
 };
 
 await createCampaign(campaign);
-\\\
+```
 
 ### Manual Lead Discovery
 
-\\\ash
+```bash
 # Run lead discovery for specific region
-npm run discover -- --region \Toronto\ --industry \Technology\
-\\\
+npm run discover -- --region "Toronto" --industry "Technology"
+```
 
 ### Email Verification
 
-\\\javascript
+```javascript
 // Verify email before sending
-const result = await verifyEmail(\contact@company.com\);
+const result = await verifyEmail("contact@company.com");
 console.log(result.valid, result.trust_score);
-\\\
+```
 
 ## 🧪 Testing
 
-\\\ash
+```bash
 # Run all tests
 npm test
 
 # Run specific test suite
-npm test -- --grep \email-engine\
+npm test -- --grep "email-engine"
 
 # Run with coverage
 npm test -- --coverage
-\\\
+```
 
 ## 📈 Monitoring & Analytics
 
 ### Dashboard Access
-- **URL:** \http://localhost:3000\
+- **URL:** `http://localhost:3000`
 - **Features:** Real-time statistics, campaign performance, email deliverability
 
 ### PM2 Monitoring
-\\\ash
+```bash
 pm2 monit
 pm2 logs canada-omega --lines 100
-\\\
+```
 
 ### Key Metrics
 - **Email Sent Rate:** Number of emails sent per hour
@@ -257,7 +264,7 @@ pm2 logs canada-omega --lines 100
 
 ## 🔒 Security Best Practices
 
-1. **Never commit \.env\ or \config.toml\** to version control
+1. **Never commit `.env` or `config.toml`** to version control
 2. **Use environment variables** for all sensitive data
 3. **Rotate API keys** regularly
 4. **Monitor rate limits** to avoid provider blocks
@@ -269,9 +276,9 @@ pm2 logs canada-omega --lines 100
 Contributions are welcome! Please follow these steps:
 
 1. Fork the repository
-2. Create a feature branch (\git checkout -b feature/amazing-feature\)
-3. Commit your changes (\git commit -m 'Add amazing feature'\)
-4. Push to the branch (\git push origin feature/amazing-feature\)
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
 ### Development Guidelines
@@ -300,6 +307,6 @@ For support, email support@resumesendtocompany.com or open an issue in the GitHu
 
 ---
 
-<div align=\center\>
- <sub>Built with ❤️ by <a href=\https://github.com/semih-kilic\>Semih Kılıç</a></sub>
+<div align="center">
+  <sub>Built with ❤️ by <a href="https://github.com/semih-kilic">Semih Kılıç</a></sub>
 </div>
