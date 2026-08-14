@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#1a1a2e"/>
+  <text x="400" y="180" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="white">ResumeSendtoCompany Dashboard</text>
+  <text x="400" y="220" text-anchor="middle" font-family="Arial" font-size="16" fill="#667eea">Emails Sent: 12,847 | Leads Found: 8,234</text>
+  <text x="400" y="250" text-anchor="middle" font-family="Arial" font-size="16" fill="#764ba2">Response Rate: 24.7% | Campaigns Active: 15</text>
+  <rect x="100" y="280" width="600" height="80" rx="10" fill="rgba(102,126,234,0.3)"/>
+  <text x="400" y="325" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Email Performance Over Time - 24/7 Autonomous Outreach</text>
+</svg>
